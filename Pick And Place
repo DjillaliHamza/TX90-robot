@@ -1,0 +1,34 @@
+begin
+     setFrame(p0,pX,pY,pFlaque)
+  // definition du repere plaque
+  // setFrame(p0,pX,pY,pFlaque)
+  // hauteur de l'outil par rapport a la plaque pendant la trajectoire
+  Hauteur:=-50
+  // definition des outils
+  tPince.trsf:={0,0,215,0,0,-45}
+  // teach points pick and place and program here a basic program for pick and place
+  open(tPince)
+  delay(2)
+  // pick functions
+  movej(Prepos,tPince,speed25)
+  //Linear approach 10 cm away from the targeted object
+  movej(appro(prisse,{0,0,-100,0,0,0}),tPince,speed25)
+  //Object pick step
+  movel(pprisse,tPince,speed25)
+  close(tPince)
+  delay(2)
+  //Linearly leaving the picking scene.
+  movel(appro(pprisse,{0,0,100,0,0,0}),tPince,speed25)
+  //Reaching the place holder
+  movej(Prepos,tPince,speed25)
+  //Linear approach 10 cm away from where to place the object.
+  movej(appro(pdepose,{0,0,-100,0,0,0}),tPince,speed25)
+  //placing the object
+  movel(pdepose,tPince,speed25)
+  //gripper open function
+  open(tPince)
+  delay(2)
+  movel(appro(pdepose,{0,0,100,0,0,0}),tPince,speed25)
+  //Reaching back the place where to rest.
+  movej(Prepos,tPince,speed25)
+end
