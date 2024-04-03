@@ -1,0 +1,17 @@
+begin
+  movej(prepos,tool1,mmNomSpeed)
+  setFrame(p0,pX,pY,fFrame)
+  r=40
+  for y=-40 to 40 step 10
+    x=100-sqrt(r*r-y*y)
+    p=compose(p0,fFrame,x,y+100,0,0,0,0)
+    movel(p,tool1,mmNomSpeed)
+  endFor
+
+  for y=40 to -40 step -10
+    x=sqrt(r*r-y*y)
+    p=compose(p0,fFrame,100-x,y+100,0,0,0,0)
+    movel(p,tool1,mmNomSpeed)
+  endFor
+  waitEndMove()
+end
