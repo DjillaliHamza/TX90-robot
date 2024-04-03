@@ -1,0 +1,26 @@
+begin
+  movej(prepos,tool1,mmNomSpeed)
+  setFrame(p0,pX,pY,fFrame)
+
+  for x=-200 to 200 step 10
+    p=compose(p0,fFrame,x,0,0,0,0,0)
+    movel(p,tool1,mmNomSpeed)
+  endFor
+
+  for y=-200 to 200 step 10
+    p=compose(p0,fFrame,200,y,0,0,0,0)
+    movel(p,tool1,mmNomSpeed)
+  endFor
+
+  for x=200 to -200 step -10
+    p=compose(p0,fFrame,x,200,0,0,0,0)
+    movel(p,tool1,mmNomSpeed)
+  endFor
+
+  for y=200 to -200 step -10
+    p=compose(p0,fFrame,-200,y,0,0,0,0)
+    movel(p,tool1,mmNomSpeed)
+  endFor
+
+  waitEndMove()
+end
